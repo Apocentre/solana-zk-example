@@ -6,4 +6,8 @@
 
 ## Build the Solana verifier code
 
-``
+`yarn parse-vk`
+
+## Run tests
+
+`anchor test`
