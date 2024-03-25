@@ -2,6 +2,7 @@ import * as anchor from "@coral-xyz/anchor";
 import Web3Pkg from "@apocentre/solana-web3";
 import {createAndSendV0Tx} from "./utils/tx.js";
 import {buildBn128, utils} from "ffjavascript";
+import {convert_proof} from "wasm"
 import {
   g1Uncompressed, g2Uncompressed, to32ByteBuffer, negateAndSerializeG1, reverseEndianness
 } from "./utils/zk.js";
@@ -17,7 +18,8 @@ describe("Create wallet", () => {
     const curve = await buildBn128();
     const proofProc = unstringifyBigInts(proof);
 
-    const proofA = g1Uncompressed(curve, proofProc.pi_a);
+    let proofA = g1Uncompressed(curve, proofProc.pi_a);
+    proofA = convert_proof(proofA);
     const proofB = g2Uncompressed(curve, proofProc.pi_b);
     const proofC = g1Uncompressed(curve, proofProc.pi_c);
     const publicSignalsBuffer = to32ByteBuffer(BigInt(publicSignals[0]));
