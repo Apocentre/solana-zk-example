@@ -19,10 +19,8 @@ pub fn verify_proof(
     &VERIFYINGKEY,
   ).map_err(|_| ErrorCode::InvalidProofData)?;
   
-  verifier.verify().map_err(|error| {
-    msg!("Error: >>>>>>>>>> {:?}", error);
-    ErrorCode::GrothVerificationError
-  })?;
+  verifier.verify().map_err(|_| ErrorCode::GrothVerificationError)?;
+
 
   Ok(())
 }
