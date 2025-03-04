@@ -5,7 +5,8 @@
   },
   "type": "module",
   "dependencies": {
-    "@coral-xyz/anchor": "^0.29.0"
+    "@coral-xyz/anchor": "^0.29.0",
+    "snarkjs": "^0.7.5"
   },
   "devDependencies": {
     "@apocentre/solana-web3": "Apocentre/solana-web3",

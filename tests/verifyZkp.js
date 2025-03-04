@@ -13,8 +13,9 @@ import {expect} from "./utils/solana-chai.js";
 const Web3 = Web3Pkg.default;
 const {unstringifyBigInts} = utils;
 
+
 describe("Create wallet", () => {
-  it("should verify the zkp", async () => {
+  it.only("should verify the zkp", async () => {
     const curve = await buildBn128();
     const proofProc = unstringifyBigInts(proof);
 
